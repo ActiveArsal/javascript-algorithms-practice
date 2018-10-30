@@ -26,7 +26,7 @@ function steps(n) {
 				stair += '#';
 			}
 			else {
-				stair += '';
+				stair += ' ';
 			}
 		}
 		console.log(stair);
