@@ -73,4 +73,51 @@ class LinkedList {
 			this.head = null;
 		}
 	}
+
+	insertLast(data) {
+		const last = this.getLast();
+
+		if(last) {
+			last.next = new Node(data);
+		} else {
+			this.head = new Node(data);
+		}
+	}
+
+	getAt(integer) {
+		let node = this.head;
+		let counter = 0;
+
+		while(node && counter <= integer) {
+			counter++;
+			node = node.next;
+		}	
+
+		return node;
+	}
+
+	removeAt(integer) {
+		let node = this.getAt(integer);
+		if(!node) {
+			return;
+		}
+
+		let previous = this.getAt(integer - 1);
+		if(previous && node.next) {
+			previous.next = node.next;
+			return;
+		}
+
+		if(!previous && node.next) {
+			this.head = node.next;
+			return;
+		}
+
+		if(previous && !node.next) {
+			previous.next = null;
+			return;
+		}
+	}
+
+	
 }
